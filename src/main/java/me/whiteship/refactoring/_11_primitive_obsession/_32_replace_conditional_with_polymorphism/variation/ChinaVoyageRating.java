@@ -2,29 +2,21 @@ package me.whiteship.refactoring._11_primitive_obsession._32_replace_conditional
 
 import java.util.List;
 
-public class VoyageRating {
+public class ChinaVoyageRating extends VoyageRating{
 
     private Voyage voyage;
 
     private List<VoyageHistory> history;
 
-    public VoyageRating(Voyage voyage, List<VoyageHistory> history) {
-        this.voyage = voyage;
-        this.history = history;
+    public ChinaVoyageRating(Voyage voyage, List<VoyageHistory> history) {
+        super(voyage, history);
     }
 
-    public char value() {
-        final int vpf = this.voyageProfitFactor();
-        final int vr = this.voyageRisk();
-        final int chr = this.captainHistoryRisk();
-
-        return (vpf * 3 > (vr + chr * 2)) ? 'A' : 'B';
-    }
-
+    @Override
     protected int captainHistoryRisk() {
-        int result = 1;
-        if (this.history.size() < 5) result += 4;
-        result += this.history.stream().filter(v -> v.profit() < 0).count();
+        int result = 0;
+
+        if (this.hasChinaHistory()) result -= 2;
 
         return Math.max(result, 0);
     }
@@ -37,19 +29,16 @@ public class VoyageRating {
         return Math.max(result, 0);
     }
 
+    @Override
     protected int voyageProfitFactor() {
-        int result = 2;
+        int result = 0;
 
         if (this.voyage.zone().equals("china")) result += 1;
-        if (this.voyage.zone().equals("east-indies")) result +=1 ;
         if (this.voyage.zone().equals("china") && this.hasChinaHistory()) {
             result += 3;
             if (this.history.size() > 10) result += 1;
             if (this.voyage.length() > 12) result += 1;
             if (this.voyage.length() > 18) result -= 1;
-        } else {
-            if (this.history.size() > 8) result +=1 ;
-            if (this.voyage.length() > 14) result -= 1;
         }
 
         return result;
