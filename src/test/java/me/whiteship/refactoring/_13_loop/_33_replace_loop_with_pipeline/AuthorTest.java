@@ -12,7 +12,8 @@ class AuthorTest {
     void twitterHandler() {
         Author keesun = new Author("ms", null);
         Author whiteship = new Author("naver", "whiteship");
-        assertEquals(List.of("whiteship"), Author.TwitterHandles(List.of(keesun, whiteship), "naver"));
+        //assertEquals(List.of("whiteship"), Author.TwitterHandles(List.of(keesun, whiteship), "naver"));
+        assertEquals(List.of("whiteship"), Author.TwitterHandles_stream(List.of(keesun, whiteship), "naver"));
     }
 
 }
