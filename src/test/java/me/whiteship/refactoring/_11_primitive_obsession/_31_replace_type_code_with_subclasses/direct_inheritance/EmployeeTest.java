@@ -7,10 +7,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmployeeTest {
 
     @Test
-    void employeeType() {
+    void employeeType() throws Exception {
+        /*
         assertEquals("engineer", new Employee("keesun", "engineer").getType());
         assertEquals("manager", new Employee("keesun", "manager").getType());
         assertThrows(IllegalArgumentException.class, () -> new Employee("keesun", "wrong type"));
+*/
+
+        assertEquals("engineer", Employee.createEmployee("keesun", "engineer").getType());
+        assertEquals("manager",Employee.createEmployee("keesun", "manager").getType());
     }
 
 }

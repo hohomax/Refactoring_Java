@@ -2,16 +2,29 @@ package me.whiteship.refactoring._11_primitive_obsession._31_replace_type_code_w
 
 import java.util.List;
 
-public class Employee {
+public abstract class Employee {
 
     private String name;
 
     private String type;
 
-    public Employee(String name, String type) {
+    protected Employee(String name, String type) {
         this.validate(type);
         this.name = name;
         this.type = type;
+    }
+
+    public static Employee createEmployee(String name, String type) throws Exception {
+
+         switch (type){
+            case "engineer" : return new Engineer(name, "engineer");
+
+            case "manager" :  return new Manager(name, "manager");
+
+            case "salesman" :  return new SalesMan(name, "salesman");
+
+            default : throw new Exception("not valid type");
+        }
     }
 
     private void validate(String type) {
@@ -21,7 +34,7 @@ public class Employee {
         }
     }
 
-    public String getType() {
+    protected String getType() {
         return type;
     }
 

@@ -12,10 +12,19 @@ public class GasUsage {
     }
 
     public double getAmount() {
-        return amount;
+        return this.amount;
+    }
+
+    public double pricePerUnit() {
+        return pricePerUnit;
     }
 
     public double getPricePerUnit() {
         return pricePerUnit;
     }
+
+    public double gasBill() {
+        return getAmount() * pricePerUnit();
+    }
+
 }

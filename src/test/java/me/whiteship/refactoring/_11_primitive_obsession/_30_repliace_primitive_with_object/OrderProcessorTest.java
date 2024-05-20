@@ -16,6 +16,7 @@ class OrderProcessorTest {
                         new Order("normal"),
                         new Order("high"),
                         new Order("rush")));
+
         assertEquals(2, highPriorityOrders);
     }
 
