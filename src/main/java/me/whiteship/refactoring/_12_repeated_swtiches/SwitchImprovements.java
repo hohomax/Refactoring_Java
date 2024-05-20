@@ -12,4 +12,19 @@ public class SwitchImprovements {
         }
         return result;
     }
+
+    /**
+     * jdk 17 버젼 변경된 부분
+     * switch Expression   기존 swtich statement와 다르다.
+     */
+    public int vacationHours2(String type) {
+
+        return switch (type) {
+            case "full-time" -> 120;
+            case "part-time" -> 80;
+            case "temporal" ->  32;
+            default ->  0;
+        };
+
+    }
 }

@@ -9,7 +9,8 @@ class SwitchImprovementsTest {
     @Test
     void vacationHours() {
         SwitchImprovements si = new SwitchImprovements();
-        assertEquals(120, si.vacationHours("full-time"));
+        //assertEquals(120, si.vacationHours("full-time"));
+        assertEquals(120, si.vacationHours2("full-time"));
     }
 
 }
