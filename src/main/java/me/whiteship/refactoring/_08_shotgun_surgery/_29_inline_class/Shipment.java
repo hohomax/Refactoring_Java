@@ -2,21 +2,37 @@ package me.whiteship.refactoring._08_shotgun_surgery._29_inline_class;
 
 public class Shipment {
 
-    private TrackingInformation trackingInformation;
+    private String shippingCompany;
 
-    public Shipment(TrackingInformation trackingInformation) {
-        this.trackingInformation = trackingInformation;
+    private String trackingNumber;
+
+    public Shipment(String shippingCompany, String trackingNumber) {
+        this.shippingCompany = shippingCompany;
+        this.trackingNumber = trackingNumber;
     }
 
-    public TrackingInformation getTrackingInformation() {
-        return trackingInformation;
+
+    public String shippingCompany() {
+        return shippingCompany;
     }
 
-    public void setTrackingInformation(TrackingInformation trackingInformation) {
-        this.trackingInformation = trackingInformation;
+    public Shipment setShippingCompany(String shippingCompany) {
+        this.shippingCompany = shippingCompany;
+        return this;
     }
 
-    public String getTrackingInfo() {
-        return this.trackingInformation.display();
+    public String trackingNumber() {
+        return trackingNumber;
+    }
+
+    public Shipment setTrackingNumber(String trackingNumber) {
+        this.trackingNumber = trackingNumber;
+        return this;
+    }
+
+    public String getTrackingInfo(){
+
+        return shippingCompany+": "+trackingNumber;
+
     }
 }
