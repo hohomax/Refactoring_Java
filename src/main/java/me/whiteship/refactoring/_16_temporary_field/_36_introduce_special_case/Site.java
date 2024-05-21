@@ -5,7 +5,9 @@ public class Site {
     private Customer customer;
 
     public Site(Customer customer) {
-        this.customer = customer;
+
+        this.customer = customer.getName().equals("unknown") ?
+                new UnknownCustommer("unknown",null,null) : customer;
     }
 
     public Customer getCustomer() {

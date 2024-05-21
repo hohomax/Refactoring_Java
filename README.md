@@ -1,10 +1,83 @@
 # 리팩토링 자바 
 
-### Reference Documentation
+### 1. 자주 사용하는 리팩토링 기술
+    * 함수 추출하기
+    * 함수 인라인하기
+    * 함수 선언 변경하기
+        * 이름, 매개변수 , 리턴타입
+    * 변수 추출하기, 변수 인라인하기,변수 캡슐화하기
+        * 직접 접근 못하도록 protected, private으로 변경
+    * 변수 이름 바꾸기
+    * 매개변수 객체 만들기
+    * 여러 함수를 클래스로 묶기
+    * 여러함수를 변환 함수로 묶기
+    * 단계 쪼개기
 
-For further reference, please consider the following sections:
+### 2. 캡슐화
+    * 레코드 캡슐화하기
+    * 컬렉션 캡슐화하기
+    * 기본형을 객체로 바꾸기 (repleace prinitive with Object)
+    * 임시 변수를 질의함수로바꾸기
+    * 클래스 추출하기
+    * 클래스 인라인하기
+    * 위임 숨기기 (hide Delegate)
+        * method chain
+    * 중재자 제거하기
+    * 알고리즘 교체하기
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.6.1/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.6.1/maven-plugin/reference/html/#build-image)
+### 3. 기능 옮기기
+    * 함수, 필드 옮기기
+    * 문장을 함수로 옮기기
+    * 문장을 호출한곳으로 옮기기
+    * 문장 슬라이드하기
+    * 반목문 쪼개기 (Splite loop)
+    * 반복문을 파이프라인으로 바꾸기
+        * for/while 등을 자바에서 제공하는 stream등으로 변경
+    * 죽은코드 제거하기
+        * 사용하지 않는 소스 제거
 
+### 4. 데이터 조직화
+    * 변수 쪼개기
+    * 필드 이름 바꾸기
+    * 파생변수를 질의함수로 바꾸기
+        * ex) 수량 * 급액 => 별도 함수로 분리
+    * 참조를 값으로 바꾸기  (change references to value)
+        * 매개변수로 클래스가 아닌 값으로 전달
+            * reference를 전달하는 경우는 호출하는 클래스에서 레퍼런스의 다양한값을 참조할때
+    * 값을 참조로 바꾸기 (change value to reference)
+
+### 5. 조건부 로직 간소화
+
+    * 조건문 분해하기
+        * extract method통해서 분해시키기
+    * 조건식 통합하기
+    * 조건부 로직을 다형성으로 바꾸기
+    * 특이케이스 추가하기
+    * Assertion 추가하기
+
+### 6. API 리팩토링
+    * 함수 매개변수화하기
+    * 플래그 인수 제거
+    * 객체 통째로 넘기기
+    * 매개변수를 질의 함수로 바꾸기 
+        * 매개변수를 전달하여 호출시 단순 함수로 변경    
+        * <-> 질의함수를 매개변수로 바꾸기
+    * 세터제거하기
+    * 생성자를 팩토리 함수로 바꾸기
+        * 이름 변경, 구체적인 리턴타입 변경 가능 
+    * 함수를 명령으로 바꾸기
+    * 명령을 함수로 바꾸기
+
+### 7. 상속 다루기
+    * 메소드 올리기/내리기
+    * 필드 올리기/내리기
+    * 생성자 본문 올리기
+    * 서브클래스 제거하기
+    * 슈퍼클래스 추출하기
+    * 서브클래스/슈퍼클래스 위임으로 바꾸기
+        * interface 활용
+
+### references
+* [마틴 파울러 리팩토링자바](https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=236186172)
+* 인프런 백기선님 리팩토링 강의
+* [리팩토링](https://refactoring.com/catalog)

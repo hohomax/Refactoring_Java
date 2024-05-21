@@ -14,6 +14,17 @@ public class Booking {
         this.time = time;
     }
 
+    public static Booking createBook(Show show, LocalDateTime time){
+        return new Booking(show, time);
+    }
+
+    public static Booking createPremiumBook(Show show, LocalDateTime time, PremiumExtra extra){
+        PremiumBooking premiumBooking = new PremiumBooking(show, time, extra);
+        //premiumBooking.premiumDelegate = new PremiumDelegate(premiumBooking, extra);
+        return premiumBooking;
+
+    }
+
     public boolean hasTalkback() {
         return this.show.hasOwnProperty("talkback") && !this.isPeakDay();
     }

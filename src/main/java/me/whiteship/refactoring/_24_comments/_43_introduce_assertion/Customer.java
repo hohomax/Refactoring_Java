@@ -5,6 +5,7 @@ public class Customer {
     private Double discountRate;
 
     public double applyDiscount(double amount) {
+
         return (this.discountRate != null) ? amount - (this.discountRate * amount) : amount;
     }
 

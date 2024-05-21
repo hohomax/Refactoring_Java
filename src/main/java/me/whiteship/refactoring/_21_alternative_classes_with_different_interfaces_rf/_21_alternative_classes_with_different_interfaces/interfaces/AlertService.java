@@ -1,0 +1,7 @@
+package me.whiteship.refactoring._21_alternative_classes_with_different_interfaces_rf._21_alternative_classes_with_different_interfaces.interfaces;
+
+import me.whiteship.refactoring._21_alternative_classes_with_different_interfaces_rf._21_alternative_classes_with_different_interfaces.AlertMessage;
+
+public interface AlertService {
+    void add(AlertMessage alertMessage);
+}

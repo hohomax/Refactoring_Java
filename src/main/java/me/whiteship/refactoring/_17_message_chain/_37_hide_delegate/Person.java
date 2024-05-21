@@ -18,6 +18,10 @@ public class Person {
         return department;
     }
 
+    public Person getDepartmentManager() {
+        return department.getManager();
+    }
+
     public void setDepartment(Department department) {
         this.department = department;
     }
